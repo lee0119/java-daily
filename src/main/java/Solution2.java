@@ -2,6 +2,7 @@ import java.util.*;
 
 //자바 모의고사 수포자
 //레벌 1 -12
+//레벨 1 -13
 class Solution2 {
     public int[] solution2(int[] answers) {
         HashMap<Integer, Integer> map = new HashMap<>();
