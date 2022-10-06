@@ -11,6 +11,7 @@ import java.util.*;
 //레벨 1-15 평균 구하기
 //레벨 1-16
 //레벨 1-17 체육복
+//체육복 복습 -실전프로젝트로 시간 부족 ㅠㅠㅠ
 class Solution2 {
     // 소수를 판별하기 위한 메서드
     int solution2(int n, vector<int> lost, vector<int> reserve) {
