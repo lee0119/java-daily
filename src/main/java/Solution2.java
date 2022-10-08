@@ -11,25 +11,43 @@ import java.util.*;
 //레벨 1-15 평균 구하기
 //레벨 1-16
 //레벨 1-17 체육복
-//체육복 복습 -실전프로젝트로 시간 부족 ㅠㅠㅠ
+//레벨 1-18 신고결과받기
+import java.util.*;
 class Solution2 {
-    // 소수를 판별하기 위한 메서드
-    int solution2(int n, vector<int> lost, vector<int> reserve) {
-        int answer = 0;
-        int student[ n + 2]; // 0,n+1 추가로
-        fill_n(student, n + 2, 1); //체육복 모두 가지고 있는 상태
+    public int[] solution(String[] id_list, String[] report, int k) {
 
-        for (int i : lost) student[i]--;
-        for (int i : reserve) student[i]++;
-
-        for (int i = 1; i <= n; i++) {
-            if (student[i] == 0) {
-                if (student[i - 1] == 2) student[i] = student[i - 1] = 1; //나눠가짐
-                else if (student[i + 1] == 2) student[i] = student[i + 1] = 1;
+        Map<String,List<String>> map= new HashMap<>();
+        Map<String,Integer> mail_map = new HashMap<>();
+        for(String user: id_list){
+            List<String> list = new LinkedList<>();
+            map.put(user,list);
+            mail_map.put(user,0);
+        }
+        for(String temp: report){
+            String[] arr=temp.split(" ");
+            String attacker=arr[0];
+            String defender=arr[1];
+            List<String> list =map.get(defender);
+            if(list.contains(attacker)){
+                continue;
+            }
+            list.add(attacker);
+            map.put(defender,list);
+        }
+        for(String data: map.keySet()){
+            List<String> list =map.get(data);
+            if(list.size()>=k){
+                for(String user: list){
+                    int count =mail_map.get(user)+1;
+                    mail_map.put(user,count);
+                }
             }
         }
-        for (int i = 1; i <= n; i++) {
-            if (student[i] > 0) answer++;
+        int i=0;
+        int[] answer = new int[id_list.length];
+        for(String data: id_list){
+            answer[i]= mail_map.get(data);
+            i++;
         }
         return answer;
     }
