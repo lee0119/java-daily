@@ -12,44 +12,20 @@ import java.util.*;
 //레벨 1-16
 //레벨 1-17 체육복
 //레벨 1-18 신고결과받기
-//레벨 1 다른방법 
+//레벨 1 다른방법
+//레벨 1-19 비밀지도 
 import java.util.*;
-class Solution2 {
-    public int[] solution(String[] id_list, String[] report, int k) {
+    class Solution2 {
+        public String[] solution(int n, int[] arr1, int[] arr2) {
+            String[] answer = new String[n];
 
-        Map<String,List<String>> map= new HashMap<>();
-        Map<String,Integer> mail_map = new HashMap<>();
-        for(String user: id_list){
-            List<String> list = new LinkedList<>();
-            map.put(user,list);
-            mail_map.put(user,0);
-        }
-        for(String temp: report){
-            String[] arr=temp.split(" ");
-            String attacker=arr[0];
-            String defender=arr[1];
-            List<String> list =map.get(defender);
-            if(list.contains(attacker)){
-                continue;
-            }
-            list.add(attacker);
-            map.put(defender,list);
-        }
-        for(String data: map.keySet()){
-            List<String> list =map.get(data);
-            if(list.size()>=k){
-                for(String user: list){
-                    int count =mail_map.get(user)+1;
-                    mail_map.put(user,count);
+            for(int i=0; i < n; i++){
+                String row = String.format(String.format("%%%ds", n), Integer.toBinaryString(arr1[i] | arr2[i]));
+                for(int j=0; j < n; j++){
+                    answer[i] = row.replace('1', '#').replace('0', ' ');
                 }
             }
+
+            return answer;
         }
-        int i=0;
-        int[] answer = new int[id_list.length];
-        for(String data: id_list){
-            answer[i]= mail_map.get(data);
-            i++;
-        }
-        return answer;
     }
-}
