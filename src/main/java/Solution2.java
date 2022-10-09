@@ -12,6 +12,7 @@ import java.util.*;
 //레벨 1-16
 //레벨 1-17 체육복
 //레벨 1-18 신고결과받기
+//레벨 1 다른방법 
 import java.util.*;
 class Solution2 {
     public int[] solution(String[] id_list, String[] report, int k) {
