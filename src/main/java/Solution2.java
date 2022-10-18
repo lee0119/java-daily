@@ -18,7 +18,8 @@ import java.util.*;
 //복습복습
 //레벨 1-20 2106년
 //다시 풀기 2106
-//자바의 정석 예제 
+//자바의 정석 예제
+//파이널 전이라 복습만 
 import java.util.*;
 class Solution2 {
     public String solution2(int a, int b) {
