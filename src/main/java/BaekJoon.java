@@ -1,20 +1,43 @@
-import java.util.*;
+import java.util.Scanner;
+
 public class BaekJoon {
-    public static void main(String[] args){
 
-        Scanner scanner = new Scanner(System.in);
-        String name;
-        int age;
+    public static void main(String[] args) {
 
-        System.out.println("이름을 입력해 주세요");
-        name = scanner.next();
-        System.out.println("나이를 입력해 주세요");
-        age = scanner.nextInt();
+        Scanner in = new Scanner(System.in);
 
-        System.out.println("\n이름:" + name + "\n");
-        System.out.println("나이:" + age + "살");
-        
+        int[][] dp = new int[30][30];
+
+        // 2번 성질 (n == r, r == 0)
+        for (int i = 0; i < 30; i++) {
+            dp[i][i] = 1;
+            dp[i][0] = 1;
+        }
+
+
+        for (int i = 2; i < 30; i++) {
+            for (int j = 1; j < 30; j++) {
+                // 1번 성질
+                dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
+            }
+        }
+
+
+
+        int T = in.nextInt();
+
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < T; i++) {
+
+            // M개중 N개를 뽑는 경우이므로 nCr 에서 n = M, r = N이다.
+            int N = in.nextInt();	// N = r
+            int M = in.nextInt();	// M = n
+
+            sb.append(dp[M][N]).append('\n');
+        }
+
+        System.out.println(sb);
 
     }
 }
-
