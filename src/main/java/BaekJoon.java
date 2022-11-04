@@ -9,17 +9,14 @@
 public class BaekJoon {
 
     public static void main(String[] args) {
-        public int[] fibonacci(int num) {
+        public int[] mergeArrays (int[] arr1, int[] arr2) {
             // TODO:
+            int[] answer = new int[arr1.length + arr2.length];//{0,0,0,0}
 
-            int[] fibo = new int[num + 1 ];
+            System.arraycopy(arr1, 0 , answer, 0 , arr1.length); //{1,2,0,0}
+            System.arraycopy(arr2, 0 , answer, arr1.length, arr2.length); //{1,2,3,4}
 
-                for (int i=0; i<=num; i++){
-                if (i<= 1) fibo[i] = i;
-                else fibo[i] =fibo[i - 2] + fibo[i -1 ];
-            }
-            return fibo;
+            return answer;
         }
     }
-}
 
