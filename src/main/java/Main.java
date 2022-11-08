@@ -1,12 +1,22 @@
+//Main 클래스에서 Solution클래스 선언
 
-
-//Main 클래스에서 Solution클래스 선언해주기
+//프로그래머스 삼총사 
 public class Main {
-    public static void main(String[] ars) {
-        Solution numberss = new Solution();
-        //입력요소를 선언해줘야 출력값이 나옴
-        int[] numbers = {5, 9, 7, 10};
-        int[] b = {5,0,2,7};
+        class Solution {
+            public int solution(int[] number) {
+                int answer = 0;
+
+                for (int i = 0; i < number.length; i++) {
+                    for (int j = i + 1; j < number.length; j++) {
+                        for (int k = j + 1; k < number.length; k++) {
+                            if (number[i] + number[j] + number[k] == 0) {
+                                answer++;
+                            }
+                        }
+                    }
+                }
+                return answer;
+            }
+        }
     }
-}
 
