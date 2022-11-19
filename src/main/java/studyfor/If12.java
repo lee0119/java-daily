@@ -22,7 +22,7 @@ public class If12 {
             int num = Character.getNumericValue(strings);
             System.out.println(strings);
 
-            //if 문으로 반복하기 
+            //if 문으로 반복하기
             if (num > result) {
                 result = num;
             }
