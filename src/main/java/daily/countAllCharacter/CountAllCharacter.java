@@ -1,4 +1,4 @@
-package countAllCharacter;
+package daily.countAllCharacter;
 
 import java.util.HashMap;
 
