@@ -2,7 +2,7 @@ package daily_co;
 
 import java.util.HashMap;
 
-public class transformFirstAndLast {
+public class TransformFirstAndLast {
     public static void main(String[] args) {
         String[] arr = new String[]{"Queen", "Elizabeth", "Of Hearts", "Beyonce"};
         HashMap<String, String> output = transformFirstAndLast(arr);
